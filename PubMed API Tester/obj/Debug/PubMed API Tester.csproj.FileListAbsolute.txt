@@ -1,0 +1,12 @@
+D:\Dropbox\Dropbox\Development\App Libraries\PubMed\PubMed-API\PubMed API Tester\bin\Debug\PubMed API Tester.exe.config
+D:\Dropbox\Dropbox\Development\App Libraries\PubMed\PubMed-API\PubMed API Tester\bin\Debug\PubMed API Tester.exe
+D:\Dropbox\Dropbox\Development\App Libraries\PubMed\PubMed-API\PubMed API Tester\bin\Debug\PubMed API Tester.pdb
+D:\Dropbox\Dropbox\Development\App Libraries\PubMed\PubMed-API\PubMed API Tester\bin\Debug\Newtonsoft.Json.dll
+D:\Dropbox\Dropbox\Development\App Libraries\PubMed\PubMed-API\PubMed API Tester\bin\Debug\PubMed.dll
+D:\Dropbox\Dropbox\Development\App Libraries\PubMed\PubMed-API\PubMed API Tester\bin\Debug\RestSharp.Portable.dll
+D:\Dropbox\Dropbox\Development\App Libraries\PubMed\PubMed-API\PubMed API Tester\bin\Debug\Newtonsoft.Json.xml
+D:\Dropbox\Dropbox\Development\App Libraries\PubMed\PubMed-API\PubMed API Tester\bin\Debug\PubMed.pdb
+D:\Dropbox\Dropbox\Development\App Libraries\PubMed\PubMed-API\PubMed API Tester\bin\Debug\RestSharp.Portable.xml
+D:\Dropbox\Dropbox\Development\App Libraries\PubMed\PubMed-API\PubMed API Tester\obj\Debug\PubMed API Tester.csprojResolveAssemblyReference.cache
+D:\Dropbox\Dropbox\Development\App Libraries\PubMed\PubMed-API\PubMed API Tester\obj\Debug\PubMed API Tester.exe
+D:\Dropbox\Dropbox\Development\App Libraries\PubMed\PubMed-API\PubMed API Tester\obj\Debug\PubMed API Tester.pdb
