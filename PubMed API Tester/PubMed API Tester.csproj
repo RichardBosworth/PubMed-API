@@ -36,9 +36,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.7.0.1-beta1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="PubMed">
-      <HintPath>..\PubMed\bin\Debug\PubMed.dll</HintPath>
-    </Reference>
     <Reference Include="RestSharp.Portable">
       <HintPath>..\packages\FubarCoder.RestSharp.Portable.2.3.2\lib\net45\RestSharp.Portable.dll</HintPath>
     </Reference>
@@ -61,6 +58,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PubMed\PubMed.csproj">
+      <Project>{67f9d3a8-f71e-4428-913f-c37ae82cdb24}</Project>
+      <Name>PubMed</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

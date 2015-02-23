@@ -13,7 +13,7 @@ namespace PubMed.Search.Info
     {
         public async Task<List<string>> GetValidDatabaseNameListAsync()
         {
-            RestClient restClient = new RestClient(ServiceURLs.EInfoBaseURL);
+            RestClient restClient = new RestClient(ServiceURLs.ELinkBaseURL);
             RestRequest restRequest = new RestRequest();
             restRequest.AddParameter("retmode", "json");
             var restResponse = await restClient.Execute<InfoSearchRootObject>(restRequest);

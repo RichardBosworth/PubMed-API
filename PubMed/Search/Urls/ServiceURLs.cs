@@ -21,5 +21,10 @@
         {
             get { return "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"; }
         }
+
+        public static string ELinkBaseURL
+        {
+            get { return "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi"; }
+        }
     }
 }

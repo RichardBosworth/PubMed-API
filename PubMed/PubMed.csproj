@@ -38,6 +38,9 @@
     <Compile Include="Model\Database\EntrezDatabase.cs" />
     <Compile Include="Model\Database\InternalDatabaseClasses.cs" />
     <Compile Include="Model\Database\InternalDatabaseStatisticsClasses.cs" />
+    <Compile Include="Model\Links\FullTextLink.cs" />
+    <Compile Include="Model\Links\FullTextLinkOptions.cs" />
+    <Compile Include="Model\Links\Internal\Internals.cs" />
     <Compile Include="Model\Search\Internals\InternalDatabaseSearch.cs" />
     <Compile Include="Model\Search\ISearchGroupQueryURLEncoder.cs" />
     <Compile Include="Model\Search\SearchProperties.cs" />
@@ -113,6 +116,8 @@
     <Compile Include="Search\Abstract\PaperAbstractRetriever.cs" />
     <Compile Include="Search\Info\DatabaseInfoSearchExecutor.cs" />
     <Compile Include="Search\Info\IInfoSearchExecutor.cs" />
+    <Compile Include="Search\Links\FullTextLinkRetriever.cs" />
+    <Compile Include="Search\Links\IFullTextLinkRetriever.cs" />
     <Compile Include="Search\Search\DatabaseSearchExecutor.cs" />
     <Compile Include="Search\Search\IDatabaseSearchExecutor.cs" />
     <Compile Include="Search\Summary\IPaperSummaryRetriever.cs" />
