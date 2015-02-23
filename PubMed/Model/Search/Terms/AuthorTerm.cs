@@ -24,9 +24,28 @@
         {
         }
 
+        /// <summary>
+        /// </summary>
+        /// <param name="firstInitials">OPTIONAL: Up to the first two initials of the author's name.</param>
+        /// <param name="lastname">The last name of the author.</param>
+        public AuthorTerm(string lastname, string firstInitials = "") : base(GenerateCorrectNameFormat(lastname, firstInitials))
+        {
+        }
+
         protected override string SearchTagString
         {
             get { return "author"; }
+        }
+
+        private static string GenerateCorrectNameFormat(string lastname, string firstInitials)
+        {
+            string initials = firstInitials;
+            if (initials.Length>2)
+            {
+                initials = firstInitials.Substring(0, 2);
+            }
+            var generateCorrectNameFormat = string.Format("{0} {1}", lastname, initials);
+            return generateCorrectNameFormat;
         }
     }
 }

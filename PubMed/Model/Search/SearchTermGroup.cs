@@ -29,8 +29,9 @@ namespace PubMed.Model.Search
             Terms.Add(instance);
         }
 
-        public void AddTerm(SearchTerm term) 
+        public void AddTerm(SearchTerm term, LinkTypes linkType = LinkTypes.AND) 
         {
+            term.LinkType = new SearchTermLinkType(linkType);
             Terms.Add(term);
         }
 

@@ -5,12 +5,20 @@ namespace PubMed.Model.Summaries
 {
     public class Summary
     {
+        public Summary()
+        {
+            AuthorList = new List<Author>();
+            History = new List<History>();
+            ArticleIDs = new List<ArticleID>();
+            LangList = new List<string>();
+        }
+
         public string ID { get; set; }
         public string Title { get; set; }
         public string Source { get; set; }
         public DateTime? PubDate { get; set; }
         public DateTime? EPubDate { get; set; }
-        public List<Author> Authors { get; set; }
+        public List<Author> AuthorList { get; set; }
         public List<History> History { get; set; }
         public List<ArticleID> ArticleIDs { get; set; }
         public string LastAuthor { get; set; }

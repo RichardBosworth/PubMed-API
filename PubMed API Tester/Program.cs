@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using PubMed.Model.Database;
 using PubMed.Model.Search;
 using PubMed.Model.Search.Terms;
@@ -12,15 +9,18 @@ using PubMed.Search.Summary;
 
 namespace PubMed_API_Tester
 {
-    class Program
+    internal class Program
     {
-        private static EntrezDatabase _entrezDatabase = new EntrezDatabase("pubmed");
+        private static readonly EntrezDatabase _entrezDatabase = new EntrezDatabase("pubmed");
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            SearchProperties searchProperties = BuildSearchProperties();
+            var searchProperties = BuildSearchProperties();
 
-            ExecuteSearch(searchProperties);
+
+            var deserializedObject = fastBinaryFormatter.Deserialize(memoryStream) as SearchProperties;
+
+            ExecuteSearch(deserializedObject);
 
             Console.ReadLine();
         }
@@ -36,7 +36,13 @@ namespace PubMed_API_Tester
             {
                 IPaperSummaryRetriever paperSummaryRetriever = new PaperSummaryRetriever();
                 var summary = await paperSummaryRetriever.RetrievePaperSummaryAsync(new SummaryRetrievalProperties(_entrezDatabase, result.PubMedID));
-                Console.WriteLine(summary.Title);
+                if (summary.AuthorList != null)
+                {
+                    if (summary.AuthorList.Count > 0)
+                    {
+                        Console.WriteLine(summary.AuthorList[0].Name);
+                    }
+                }
             }
 
             Console.ReadLine();
@@ -44,18 +50,24 @@ namespace PubMed_API_Tester
 
         private static SearchProperties BuildSearchProperties()
         {
-            SearchProperties searchProperties = new SearchProperties();
+            var searchProperties = new SearchProperties();
             searchProperties.Database = _entrezDatabase;
             searchProperties.MaximumResults = 10;
-            searchProperties.RelDate = 90;
             searchProperties.BaseSearchTermGroup = BuildSearch();
             return searchProperties;
         }
 
         private static SearchTermGroup BuildSearch()
         {
-            SearchTermGroup baseGroup = new SearchTermGroup();
-            baseGroup.AddTerm<TitleTerm>("implantable cardioverter defibrillator", LinkTypes.AND);
+            var baseGroup = new SearchTermGroup();
+            baseGroup.AddTerm<TitleTerm>("Hodgkin lymphoma", LinkTypes.AND);
+
+            var searchTermGroup = new SearchTermGroup {GroupLinkType = new SearchTermLinkType(LinkTypes.AND)};
+            searchTermGroup.AddTerm<TitleOrAbstractTerm>("children", LinkTypes.OR);
+            searchTermGroup.AddTerm<TitleOrAbstractTerm>("paediatric", LinkTypes.OR);
+            baseGroup.Children.Add(searchTermGroup);
+
+            baseGroup.AddTerm<TitleTerm>("Non-Hodgkin lymphoma", LinkTypes.NOT);
 
             return baseGroup;
         }

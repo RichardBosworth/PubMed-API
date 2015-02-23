@@ -23,5 +23,10 @@ namespace PubMed.Model.Database
         /// Gets the date and time that the database was last updated.
         /// </summary>
         public DateTime LastUpdate { get; internal set; }
+
+        public override string ToString()
+        {
+            return string.Format("{0}", ValidEntrezName);
+        }
     }
 }

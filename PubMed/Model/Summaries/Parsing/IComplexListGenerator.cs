@@ -5,7 +5,7 @@ using PubMed.Model.Summaries.Internal;
 namespace PubMed.Model.Summaries.Parsing
 {
     /// <summary>
-    ///     Provides functionality to generate lists that aren't simple (e.g. for things such as Authors, History etc).
+    ///     Provides functionality to generate lists that aren't simple (e.g. for things such as AuthorList, History etc).
     /// </summary>
     internal interface IComplexListGenerator
     {
