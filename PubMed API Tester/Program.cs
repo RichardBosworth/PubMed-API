@@ -36,7 +36,7 @@ namespace PubMed_API_Tester
             {
                 IPaperSummaryRetriever paperSummaryRetriever = new PaperSummaryRetriever();
                 var summary = await paperSummaryRetriever.RetrievePaperSummaryAsync(new SummaryRetrievalProperties(_entrezDatabase, result.PubMedID));
-                Console.WriteLine(summary.LastAuthor);
+                Console.WriteLine(summary.Title);
             }
 
             Console.ReadLine();
@@ -46,7 +46,7 @@ namespace PubMed_API_Tester
         {
             SearchProperties searchProperties = new SearchProperties();
             searchProperties.Database = _entrezDatabase;
-            searchProperties.MaximumResults = 1000;
+            searchProperties.MaximumResults = 10;
             searchProperties.RelDate = 90;
             searchProperties.BaseSearchTermGroup = BuildSearch();
             return searchProperties;
@@ -55,7 +55,7 @@ namespace PubMed_API_Tester
         private static SearchTermGroup BuildSearch()
         {
             SearchTermGroup baseGroup = new SearchTermGroup();
-            baseGroup.AddTerm<AllFieldsTerm>("implantable cardioverter defibrillator", LinkTypes.AND);
+            baseGroup.AddTerm<TitleTerm>("implantable cardioverter defibrillator", LinkTypes.AND);
 
             return baseGroup;
         }

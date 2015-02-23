@@ -2,6 +2,9 @@
 
 namespace PubMed.Model.Search.Terms
 {
+    /// <summary>
+    ///     Publication date is the date that the article was published.
+    /// </summary>
     public class PublicationDateTerm : SearchTerm
     {
         public PublicationDateTerm(string term) : base(term)
