@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
-using PubMed.Model.Abstract;
 using PubMed.Model.Database;
-using PubMed.Model.Links;
 using PubMed.Model.Search;
 using PubMed.Model.Search.Terms;
 using PubMed.Model.Summaries;
-using PubMed.Search.Abstract;
 using PubMed.Search.Links;
 using PubMed.Search.Search;
 using PubMed.Search.Summary;
@@ -41,23 +37,16 @@ namespace PubMed_API_Tester
                     if (summary.AuthorList.Count > 0)
                     {
                         Console.WriteLine(summary.Title);
+
+                        IFullTextLinkRetriever fullTextLinkRetriever = new FullTextLinkRetriever();
+                        var fullTextLinkOptions = await fullTextLinkRetriever.RetrieveFullTextLinkOptionsAsync(_entrezDatabase, summary.ID);
+                        if (fullTextLinkOptions.Count > 0)
+                        {
+                            Process.Start("explorer.exe", fullTextLinkOptions[0].UrlToFullText);
+                        }
                     }
                 }
             }
-
-            var firstResultID = searchResults[0].PubMedID;
-            IPaperAbstractRetriever paperAbstractRetriever = new PaperAbstractRetriever();
-            var paperAbstract = await paperAbstractRetriever.GetAbstractOfPaperAsync(new AbstractRetrievalProperties(_entrezDatabase, firstResultID));
-            Console.WriteLine("---------------------------");
-            Console.WriteLine("---------------------------");
-            Console.WriteLine("---------------------------");
-            Console.WriteLine(paperAbstract);
-            Debug.WriteLine(paperAbstract);
-
-            IFullTextLinkRetriever fullTextLinkRetriever = new FullTextLinkRetriever();
-            var fullTextLinkOptions = await fullTextLinkRetriever.RetrieveFullTextLinkOptionsAsync(_entrezDatabase, firstResultID);
-            Console.WriteLine(fullTextLinkOptions[0].Provider.Name);
-            Console.WriteLine(fullTextLinkOptions[0].UrlToFullText);
 
 
             Console.ReadLine();
@@ -67,7 +56,7 @@ namespace PubMed_API_Tester
         {
             var searchProperties = new SearchProperties();
             searchProperties.Database = _entrezDatabase;
-            searchProperties.MaximumResults = 10;
+            searchProperties.MaximumResults = 5;
             searchProperties.BaseSearchTermGroup = BuildSearch();
             return searchProperties;
         }
@@ -75,8 +64,8 @@ namespace PubMed_API_Tester
         private static SearchTermGroup BuildSearch()
         {
             var baseGroup = new SearchTermGroup();
-            baseGroup.AddTerm<TitleTerm>("Hodgkin lymphoma", LinkTypes.AND);
-            baseGroup.AddTerm<TitleOrAbstractTerm>("Germany", LinkTypes.AND);
+            baseGroup.AddTerm<TitleTerm>("Children", LinkTypes.AND);
+            baseGroup.AddTerm(new AuthorTerm("garfin"), LinkTypes.AND);
 
             var searchTermGroup = new SearchTermGroup {GroupLinkType = new SearchTermLinkType(LinkTypes.AND)};
             searchTermGroup.AddTerm<TitleOrAbstractTerm>("children", LinkTypes.OR);

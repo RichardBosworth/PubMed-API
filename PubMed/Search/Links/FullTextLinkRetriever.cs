@@ -42,20 +42,29 @@ namespace PubMed.Search.Links
             var fullTextLinkOptions = new FullTextLinkOptions();
             foreach (var paperFullTextInfo in deserializedObject.LinkSet.IdUrlList)
             {
-                var linkUrl = paperFullTextInfo.ObjUrl.Url;
-                var provider = paperFullTextInfo.ObjUrl.Provider;
+                if (paperFullTextInfo.ObjUrl != null)
+                {
+                    if (paperFullTextInfo.ObjUrl.Url != null)
+                    {
+                        var fullTextLink = new FullTextLink();
+                        var linkUrl = paperFullTextInfo.ObjUrl.Url;
+                        fullTextLink.UrlToFullText = linkUrl;
 
-                var fullTextLink = new FullTextLink();
-                fullTextLink.UrlToFullText = linkUrl;
-                fullTextLink.Provider = new FullTextLinkProvider
-                                        {
-                                            Name = provider.Name,
-                                            NameAbbr = provider.NameAbbr,
-                                            Url = provider.Url.Value,
-                                            Id = provider.Id.ToString()
-                                        };
+                        if (paperFullTextInfo.ObjUrl.Provider != null)
+                        {
+                            var provider = paperFullTextInfo.ObjUrl.Provider;
+                            fullTextLink.Provider = new FullTextLinkProvider
+                                                    {
+                                                        Name = provider.Name,
+                                                        NameAbbr = provider.NameAbbr,
+                                                        Url = provider.Url.Value,
+                                                        Id = provider.Id.ToString()
+                                                    };
+                        }
 
-                fullTextLinkOptions.Add(fullTextLink);
+                        fullTextLinkOptions.Add(fullTextLink);
+                    }
+                }
             }
 
             return fullTextLinkOptions;
