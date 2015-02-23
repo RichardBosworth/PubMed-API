@@ -34,7 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Model\Abstract\Abstract.cs" />
     <Compile Include="Model\Abstract\AbstractRetrievalProperties.cs" />
     <Compile Include="Model\Database\EntrezDatabase.cs" />
     <Compile Include="Model\Database\InternalDatabaseClasses.cs" />

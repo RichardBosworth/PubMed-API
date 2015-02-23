@@ -17,10 +17,7 @@ namespace PubMed_API_Tester
         {
             var searchProperties = BuildSearchProperties();
 
-
-            var deserializedObject = fastBinaryFormatter.Deserialize(memoryStream) as SearchProperties;
-
-            ExecuteSearch(deserializedObject);
+            ExecuteSearch(searchProperties);
 
             Console.ReadLine();
         }

@@ -10,5 +10,3 @@ D:\Dropbox\Dropbox\Development\App Libraries\PubMed\PubMed-API\PubMed API Tester
 D:\Dropbox\Dropbox\Development\App Libraries\PubMed\PubMed-API\PubMed API Tester\obj\Debug\PubMed API Tester.csprojResolveAssemblyReference.cache
 D:\Dropbox\Dropbox\Development\App Libraries\PubMed\PubMed-API\PubMed API Tester\obj\Debug\PubMed API Tester.exe
 D:\Dropbox\Dropbox\Development\App Libraries\PubMed\PubMed-API\PubMed API Tester\obj\Debug\PubMed API Tester.pdb
-D:\Dropbox\Dropbox\Development\App Libraries\PubMed\PubMed-API\PubMed API Tester\bin\Debug\Gramma.Serialization.dll
-D:\Dropbox\Dropbox\Development\App Libraries\PubMed\PubMed-API\PubMed API Tester\bin\Debug\Gramma.Serialization.xml
