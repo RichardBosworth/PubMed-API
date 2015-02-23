@@ -3,7 +3,7 @@ using PubMed.Model.Summaries.Internal;
 
 namespace PubMed.Model.Summaries.Parsing
 {
-    public class BasicListTypeDeterminer : IListTypeDeterminer
+    internal class BasicListTypeDeterminer : IListTypeDeterminer
     {
         public Type DetermineListType(eSummaryResultDocSumItem item)
         {

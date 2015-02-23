@@ -6,7 +6,7 @@ using PubMed.Model.Summaries.Internal;
 
 namespace PubMed.Model.Summaries.Parsing
 {
-    public class DateSummaryValueConverter : BaseSimpleSummaryValueConverter
+    internal class DateSummaryValueConverter : BaseSimpleSummaryValueConverter
     {
         protected override object GetObjectValue(string text)
         {

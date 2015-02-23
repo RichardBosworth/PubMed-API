@@ -6,7 +6,7 @@ using PubMed.Model.Summaries.Internal;
 
 namespace PubMed.Model.Summaries.Parsing
 {
-    public abstract class BaseSimpleSummaryValueConverter : ISummaryValueConverter
+    internal abstract class BaseSimpleSummaryValueConverter : ISummaryValueConverter
     {
         public void AddItemToSummary(eSummaryResultDocSumItem item, ref Summary summary)
         {

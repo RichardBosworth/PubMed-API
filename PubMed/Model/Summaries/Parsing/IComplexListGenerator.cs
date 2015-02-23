@@ -7,12 +7,12 @@ namespace PubMed.Model.Summaries.Parsing
     /// <summary>
     ///     Provides functionality to generate lists that aren't simple (e.g. for things such as Authors, History etc).
     /// </summary>
-    public interface IComplexListGenerator
+    internal interface IComplexListGenerator
     {
         object GenerateList(eSummaryResultDocSumItem baseListItem);
     }
 
-    public class ArticleIDsListGenerator : IComplexListGenerator
+    internal class ArticleIDsListGenerator : IComplexListGenerator
     {
         public object GenerateList(eSummaryResultDocSumItem baseListItem)
         {
@@ -26,7 +26,7 @@ namespace PubMed.Model.Summaries.Parsing
         }
     }
 
-    public class HistoryListGenerator : IComplexListGenerator
+    internal class HistoryListGenerator : IComplexListGenerator
     {
         public object GenerateList(eSummaryResultDocSumItem baseListItem)
         {
@@ -52,7 +52,7 @@ namespace PubMed.Model.Summaries.Parsing
         }
     }
 
-    public class AuthorsListGenerator : IComplexListGenerator
+    internal class AuthorsListGenerator : IComplexListGenerator
     {
         public object GenerateList(eSummaryResultDocSumItem baseListItem)
         {

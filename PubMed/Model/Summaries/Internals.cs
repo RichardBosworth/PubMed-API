@@ -8,7 +8,7 @@ namespace PubMed.Model.Summaries.Internal
     /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
-    public partial class eSummaryResult
+    internal partial class eSummaryResult
     {
 
         private eSummaryResultDocSum docSumField;
@@ -29,7 +29,7 @@ namespace PubMed.Model.Summaries.Internal
 
     /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class eSummaryResultDocSum
+    internal partial class eSummaryResultDocSum
     {
 
         private uint idField;
@@ -66,7 +66,7 @@ namespace PubMed.Model.Summaries.Internal
 
     /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class eSummaryResultDocSumItem
+    internal partial class eSummaryResultDocSumItem
     {
 
         private eSummaryResultDocSumItemItem[] itemField;
@@ -136,7 +136,7 @@ namespace PubMed.Model.Summaries.Internal
 
     /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class eSummaryResultDocSumItemItem
+    internal partial class eSummaryResultDocSumItemItem
     {
 
         private string nameField;

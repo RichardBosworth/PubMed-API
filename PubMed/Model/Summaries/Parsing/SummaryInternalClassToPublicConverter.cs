@@ -2,7 +2,7 @@
 
 namespace PubMed.Model.Summaries.Parsing
 {
-    public class SummaryInternalClassToPublicConverter : ISummaryInternalClassToPublicConverter
+    internal class SummaryInternalClassToPublicConverter : ISummaryInternalClassToPublicConverter
     {
         public Summary Convert(eSummaryResult eSummaryResult)
         {
