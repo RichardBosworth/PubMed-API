@@ -36,7 +36,7 @@ namespace PubMed_API_Tester
             {
                 IPaperSummaryRetriever paperSummaryRetriever = new PaperSummaryRetriever();
                 var summary = await paperSummaryRetriever.RetrievePaperSummaryAsync(new SummaryRetrievalProperties(_entrezDatabase, result.PubMedID));
-                Console.WriteLine(summary.Title);
+                Console.WriteLine(summary.LastAuthor);
             }
 
             Console.ReadLine();
